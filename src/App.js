@@ -7,7 +7,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Navigate to="/quotes" replace />}></Route>
       <Route path="/quotes" element={<AllQuotes />}></Route>
-      <Route path="quotes/:quoteID" element={<QuoteDetails />}></Route>
+      <Route path="quotes/:quoteId/*" element={<QuoteDetails />}></Route>
       <Route path="quotes/create" element={<CreateQuote />}></Route>
     </Routes>
   );
