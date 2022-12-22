@@ -5,6 +5,12 @@ import HighlightedQuote from "../components/quotes/HighlightedQuote";
 const QuoteDetails = () => {
   const params = useParams();
   const quote = DUMMY_DATA.find((quote) => quote.id === params.quoteId);
+
+  //Check if quote exists
+  if (!quote) {
+    <h2>Quote Not Found!</h2>;
+  }
+
   return (
     <div>
       <HighlightedQuote text={quote.text} author={quote.author} />
