@@ -1,4 +1,4 @@
-import classes from "./MainNavigation.module.css";
+import classes from "./Layout.module.css";
 import MainNavigationHeader from "./MainNavigationHeader";
 const Layout = (props) => {
   return (
