@@ -8,7 +8,7 @@ const QuoteDetails = () => {
 
   //Check if quote exists
   if (!quote) {
-    <h2>Quote Not Found!</h2>;
+    return <h2>Quote Not Found!</h2>;
   }
 
   return (
