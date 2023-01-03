@@ -1,24 +1,35 @@
-import { useParams, Routes, Route } from "react-router-dom";
+import { Fragment } from "react";
+import { useParams, Routes, Route, Link } from "react-router-dom";
 import Comments from "../components/comments/Comments";
 import { DUMMY_DATA } from "../data/DummyData";
 import HighlightedQuote from "../components/quotes/HighlightedQuote";
+import React from "react";
 const QuoteDetails = () => {
   const params = useParams();
   const quote = DUMMY_DATA.find((quote) => quote.id === params.quoteId);
-
-  //Check if quote exists
   if (!quote) {
-    return <h2>Quote Not Found!</h2>;
+    return <p>No Quote found!</p>;
   }
-
   return (
-    <div>
-      <HighlightedQuote text={quote.text} author={quote.author} />
+    <Fragment>
+      <HighlightedQuote author={quote.author} text={quote.author} />
       <Routes>
-        <Route path={`/comments`} element={<Comments />}></Route>
+        <Route path="comments" element={<Comments />} />
+        <Route
+          path="*"
+          element={
+            <div className="centered">
+              <Link
+                className="btn--flat"
+                to={`/quotes/${params.quoteId}/comments`}
+              >
+                Load Comments
+              </Link>
+            </div>
+          }
+        />
       </Routes>
-    </div>
+    </Fragment>
   );
 };
-
 export default QuoteDetails;
